@@ -4,6 +4,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 //const auth = require("./app/middleware/auth");
 const jwt = require("jsonwebtoken");
+const knex = require("./app/config/database/config.js");
 
 // const secret = 'eThicLine';
 
@@ -20,11 +21,13 @@ app.use(express.json());
 app.use(cookieParser());
 
 // home de la api
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   
 });
 //login
 require("./app/routes/login.route.js")(app);
+//contact form
+require("./app/routes/ContactForm.route.js")(app);
 
 
 // puerto
